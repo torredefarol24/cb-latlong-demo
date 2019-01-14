@@ -28,7 +28,6 @@ class LatLong_App {
     }
 
     setupRoutes(app: any) {
-        console.log("Route Setup")
         routeSetup(app)
     }
 }

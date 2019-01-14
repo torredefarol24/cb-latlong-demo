@@ -1,17 +1,17 @@
-import { Entity, Column, PrimaryColumn } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity } from "typeorm"
 
 @Entity()
-export class Driver {
+export class Driver extends BaseEntity {
 
-    @PrimaryColumn()
-    id: number
+    @PrimaryGeneratedColumn()
+    id: Number
 
     @Column()
-    name: string
-
-    @Column({ type: "float", precision: 10, scale: 8 })
-    latitude: number
+    name: String
 
     @Column({ type: "float", precision: 11, scale: 8 })
-    longitude: number
+    longitude: Number
+
+    @Column({ type: "float", precision: 10, scale: 8 })
+    latitude: Number
 }
