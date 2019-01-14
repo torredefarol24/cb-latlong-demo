@@ -1,0 +1,20 @@
+{
+  "name": "latlong-sort",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Toufiq (https://twitter.com/burningraven06)",
+  "license": "MIT",
+  "scripts": {
+    "watch-ts": "tsc -w",
+    "watch-js": "nodemon build/server.js"
+  },
+  "dependencies": {
+    "@types/body-parser": "^1.17.0",
+    "@types/express": "^4.16.0",
+    "@types/mongoose": "^5.3.7",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.3",
+    "typescript": "^3.2.2"
+  }
+}
