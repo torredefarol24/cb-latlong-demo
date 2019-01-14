@@ -1,0 +1,19 @@
+{
+    "type": "mysql",
+    "host": "localhost",
+    "port": 3306,
+    "username": "root",
+    "password": "test1234",
+    "database": "lat_lng_mysqldb",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+        "source/models_mysql/**/*.ts"
+    ],
+    "migrations": [
+        "source/migrations/**/*.ts"
+    ],
+    "subscribers": [
+        "source/subscriber/**/*.ts"
+    ]
+}
