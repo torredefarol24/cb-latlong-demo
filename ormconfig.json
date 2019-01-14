@@ -8,12 +8,12 @@
     "synchronize": true,
     "logging": false,
     "entities": [
-        "source/models_mysql/**/*.ts"
+        "build/models_mysql/**/*.js"
     ],
     "migrations": [
-        "source/migrations/**/*.ts"
+        "build/migrations/**/*.js"
     ],
     "subscribers": [
-        "source/subscriber/**/*.ts"
+        "build/subscriber/**/*.js"
     ]
 }

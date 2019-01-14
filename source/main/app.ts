@@ -2,7 +2,7 @@ import express from 'express'
 import bodyParserSetup from '../bootstrap/bodyParser'
 import MongoDBSetup from '../bootstrap/mongoDBSetup'
 import routeSetup from '../bootstrap/routes'
-
+import MYSQLDBSetup from '../bootstrap/mysqlDBSetup'
 
 class LatLong_App {
     public app: express.Application
@@ -10,6 +10,7 @@ class LatLong_App {
     constructor() {
         this.app = express()
         this.connectToMongo()
+        this.connectToMYSQL()
         this.setupBodyParser(this.app)
         this.setupRoutes(this.app)
     }
@@ -20,6 +21,10 @@ class LatLong_App {
 
     connectToMongo() {
         MongoDBSetup
+    }
+
+    connectToMYSQL() {
+        MYSQLDBSetup
     }
 
     setupRoutes(app: any) {
