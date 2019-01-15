@@ -11,23 +11,26 @@ const saveDriverPosition = async (request: Request, response: Response) => {
         data: null
     }
 
+    var mysql_driver, mongo_driver
     var savedMysqlDriver, savedMongoDriver
 
     const driverId = parseInt(request.params.id)
     const lngLat = JSON.parse(request.query.lng_lat)
 
-    const driverFindOpts = {
+    const driverFindOptsMysql = {
         where: {
             id: driverId
         }
     }
 
-    let mysql_driver = await Driver.find(driverFindOpts)
+    var mysqlFindResult = await Driver.find(driverFindOptsMysql)
 
-    if (mysql_driver.length > 0) {
-        mysql_driver[0].longitude = lngLat[0]
-        mysql_driver[0].latitude = lngLat[1]
-        savedMysqlDriver = await mysql_driver[0].save()
+    if (mysqlFindResult.length > 0) {
+        mysql_driver = mysqlFindResult[0]
+
+        mysql_driver.longitude = lngLat[0]
+        mysql_driver.latitude = lngLat[1]
+        savedMysqlDriver = await mysql_driver.save()
 
     } else {
         context.success = false
@@ -35,9 +38,24 @@ const saveDriverPosition = async (request: Request, response: Response) => {
         return response.status(404).json(context)
     }
 
-    let mongo_driver = new Driver_Mongo()
-    mongo_driver.name = mysql_driver[0].name
-    mongo_driver.driver_id = mysql_driver[0].id
+
+
+
+    const driverFindOptsMongo = {
+        driver_id: driverId
+    }
+
+    var mongoFindResult = await Driver_Mongo.find(driverFindOptsMongo).select("-__v")
+
+
+    if (mongoFindResult.length === 0) {
+        mongo_driver = new Driver_Mongo()
+    } else {
+        mongo_driver = mongoFindResult[0]
+    }
+
+    mongo_driver.name = mysql_driver.name
+    mongo_driver.driver_id = mysql_driver.id
     mongo_driver.coordinates = [lngLat[0], lngLat[1]]
     savedMongoDriver = await mongo_driver.save()
 

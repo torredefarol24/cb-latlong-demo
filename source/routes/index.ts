@@ -1,9 +1,9 @@
 import driverLocationRouter from './driver_location'
-import distCalculatorRouter from './calc_distance'
+// import findNearestRouter from './find_nearest'
 
 const routes = {
     driverLocation: driverLocationRouter,
-    calcDist: distCalculatorRouter
+    // findNearest: findNearestRouter
 }
 
 export default routes

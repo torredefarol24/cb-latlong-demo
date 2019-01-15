@@ -1,0 +1,9 @@
+import { Router } from 'express'
+import FindNearestController from '../controller/find_nearest'
+
+const router = Router()
+
+router.post("/nearest", FindNearestController.findNearest)
+
+
+export default router
