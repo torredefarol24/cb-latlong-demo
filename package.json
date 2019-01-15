@@ -6,7 +6,9 @@
   "license": "MIT",
   "scripts": {
     "watch-ts": "tsc -w",
-    "watch-js": "nodemon build/server.js"
+    "watch-js": "nodemon build/server.js",
+    "build": "tsc",
+    "start": "node build/server.js"
   },
   "dependencies": {
     "@types/body-parser": "^1.17.0",

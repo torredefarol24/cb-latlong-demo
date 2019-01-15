@@ -7,7 +7,7 @@ module.exports = {
     "username": mysql_dbinfo.DB_USER,
     "password": mysql_dbinfo.DB_PASS,
     "database": mysql_dbinfo.DB_NAME,
-    "synchronize": false,
+    "synchronize": true,
     "logging": false,
     "entities": [
         "build/models_mysql/**/*.js"
